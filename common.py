@@ -220,7 +220,7 @@ class RunTest():
 
 
 class OpenationDbInterface(object):
-    def __init__(self,host_db='123.57.45.250',user_db='root',pwssword='123456',name_db='test_interface',port_db=3306,link_type=0):
+    def __init__(self,host_db='123.57.xx.xx',user_db='root',pwssword='xxxx',name_db='test_interface',port_db=3306,link_type=0):
         """
         :param host_db: 数据库主机
         :param user_db: 用户名
@@ -449,128 +449,128 @@ class OpenationDbInterface(object):
 
         #将结果保存到mysql中
 
-class OpenationDbInterface1(object):
-    def __init__(self,host_db='123.57.45.250',user_db='root',pwssword='123456',name_db='test_interface',port_db=3306,link_type=0):
-        """
-        :param host_db: 数据库主机
-        :param user_db: 用户名
-        :param pwssword: 密码
-        :param name_db: 数据库名称
-        :param port_db: 端口号
-        :param link_type: 连接类型，用于实在输出是元组还是字典（试了一下是列表）,默认列表
-        返回游标
-        """
-        print("执行初始化")
-        try:
-            if link_type==0:
-                self.conn=pymysql.connect(host=host_db,user=user_db,passwd=pwssword,db=name_db,port=port_db,charset='utf8',cursorclass=pymysql.cursors.DictCursor,autocommit =True)
-            else:
-                self.conn = pymysql.connect(host=host_db, user=user_db, passwd=pwssword, db=name_db, port=port_db,
-                                    charset='utf8',autocommit =True)   #返回元组
-        except pymysql.Error as e:
-            print("创建数据库链接失败|MySql Error %d :%s" %(e.args[0],e.args[1]))
-
-
-    def close_db(self):
-        if self.conn != None:
-            self.conn.close()
-
-
-    def insert_value_result(self,id_test,username,interface_name,exe_mode,url,header,cookie,params,result,expect_params,expect_params_value,real_expect_params,result_code,complete_params,real_complete_params,result_complete_params):
-        #id_test不需要处理，不可能为空
-        # if len(id_test)==0:
-        #     id_test='NULL'
-        # else:
-        #     id_test='"' + id_test +'"'
-        id_test=str(id_test)
-        if len(username)==0:
-            username='NULL'
-        else:
-            username='"' + username +'"'
-        if len(interface_name)==0:
-            interface_name='NULL'
-        else:
-            interface_name='"' + interface_name +'"'
-
-        if len(exe_mode)==0:
-            exe_mode='NULL'
-        else:
-            exe_mode='"' + exe_mode +'"'
-
-        if len(url)==0:
-            interface_url='NULL'
-        else:
-            url='"' + url +'"'
-
-        if header is None or len(header)==0 :
-            header='NULL'
-        else:
-            header='"' + header +'"'
-
-        if cookie is None or len(cookie)==0:
-            cookie='NULL'
-        else:
-            cookie='"' + cookie +'"'
-        if params is None or len(params)==0:
-            params='NULL'
-        else:
-            params = '"' + params + '"'
-
-        if result is None or len(result)==0:
-            result='NULL'
-        else:
-            result="'"+result+"'"
-            #result = '"' + result + '"'
-
-        if expect_params is None or len(expect_params)==0:
-            expect_params='NULL'
-        else:
-            expect_params = '"' + expect_params + '"'
-
-        if expect_params_value is None or len(expect_params_value)==0:
-            expect_params_value='NULL'
-        else:
-            expect_params_value = '"' + expect_params_value + '"'
-        if real_expect_params is None or len(real_expect_params)==0:
-            real_expect_params='NULL'
-        else:
-            real_expect_params = '"' + real_expect_params + '"'
-        #result是bool型，不需要处理
-        # if result_code is None or len(result_code)==0:
-        #     result_code='NULL'
-        # else:
-        #     result_code = '"' + result_code + '"'
-        result_code=str(result_code)
-
-
-        if complete_params is None or len(complete_params)==0:
-            complete_params='NULL'
-        else:
-            complete_params = '"' + complete_params + '"'
-        if real_complete_params is None or len(real_complete_params)==0:
-            real_complete_params='NULL'
-        else:
-            real_complete_params = '"' + real_complete_params + '"'
-
-        #result_complete_params 传入的是bool，不要用处理
-        # if result_complete_params is None or len(result_complete_params)==0:
-        #     result_complete_params='NULL'
-        # else:
-        #     result_complete_params = '"' + result_complete_params + '"'
-        result_complete_params=str(result_complete_params)
-
-        sql = "INSERT INTO interface_result (id_test,username,name_interface,exe_mode,url,header,cookie,params,result,expect_params,expect_params_value,real_expect_params,result_code,complete_params,real_complete_params,result_complete_params)" \
-              " VALUES (" +id_test+","+ username + "," + interface_name + "," + exe_mode + "," + url + "," + header + "," + cookie + "," + params + ","+result+"," + expect_params + "," + expect_params_value + "," +real_expect_params+","+result_code+","+ complete_params+"," +real_complete_params+","+result_complete_params+ ")"
-
-        print("结果写入的sql:  ", sql)
-
-        try:
-            cursor=self.conn.cursor()
-            cursor.execute(sql)
-        except:
-            self.conn.ping()
-            cursor = self.conn.cursor()
-            cursor.execute(sql)
+# class OpenationDbInterface1(object):
+#     def __init__(self,host_db='123.57.xx.xx',user_db='root',pwssword='xxxx',name_db='test_interface',port_db=3306,link_type=0):
+#         """
+#         :param host_db: 数据库主机
+#         :param user_db: 用户名
+#         :param pwssword: 密码
+#         :param name_db: 数据库名称
+#         :param port_db: 端口号
+#         :param link_type: 连接类型，用于实在输出是元组还是字典（试了一下是列表）,默认列表
+#         返回游标
+#         """
+#         print("执行初始化")
+#         try:
+#             if link_type==0:
+#                 self.conn=pymysql.connect(host=host_db,user=user_db,passwd=pwssword,db=name_db,port=port_db,charset='utf8',cursorclass=pymysql.cursors.DictCursor,autocommit =True)
+#             else:
+#                 self.conn = pymysql.connect(host=host_db, user=user_db, passwd=pwssword, db=name_db, port=port_db,
+#                                     charset='utf8',autocommit =True)   #返回元组
+#         except pymysql.Error as e:
+#             print("创建数据库链接失败|MySql Error %d :%s" %(e.args[0],e.args[1]))
+#
+#
+#     def close_db(self):
+#         if self.conn != None:
+#             self.conn.close()
+#
+#
+#     def insert_value_result(self,id_test,username,interface_name,exe_mode,url,header,cookie,params,result,expect_params,expect_params_value,real_expect_params,result_code,complete_params,real_complete_params,result_complete_params):
+#         #id_test不需要处理，不可能为空
+#         # if len(id_test)==0:
+#         #     id_test='NULL'
+#         # else:
+#         #     id_test='"' + id_test +'"'
+#         id_test=str(id_test)
+#         if len(username)==0:
+#             username='NULL'
+#         else:
+#             username='"' + username +'"'
+#         if len(interface_name)==0:
+#             interface_name='NULL'
+#         else:
+#             interface_name='"' + interface_name +'"'
+#
+#         if len(exe_mode)==0:
+#             exe_mode='NULL'
+#         else:
+#             exe_mode='"' + exe_mode +'"'
+#
+#         if len(url)==0:
+#             interface_url='NULL'
+#         else:
+#             url='"' + url +'"'
+#
+#         if header is None or len(header)==0 :
+#             header='NULL'
+#         else:
+#             header='"' + header +'"'
+#
+#         if cookie is None or len(cookie)==0:
+#             cookie='NULL'
+#         else:
+#             cookie='"' + cookie +'"'
+#         if params is None or len(params)==0:
+#             params='NULL'
+#         else:
+#             params = '"' + params + '"'
+#
+#         if result is None or len(result)==0:
+#             result='NULL'
+#         else:
+#             result="'"+result+"'"
+#             #result = '"' + result + '"'
+#
+#         if expect_params is None or len(expect_params)==0:
+#             expect_params='NULL'
+#         else:
+#             expect_params = '"' + expect_params + '"'
+#
+#         if expect_params_value is None or len(expect_params_value)==0:
+#             expect_params_value='NULL'
+#         else:
+#             expect_params_value = '"' + expect_params_value + '"'
+#         if real_expect_params is None or len(real_expect_params)==0:
+#             real_expect_params='NULL'
+#         else:
+#             real_expect_params = '"' + real_expect_params + '"'
+#         #result是bool型，不需要处理
+#         # if result_code is None or len(result_code)==0:
+#         #     result_code='NULL'
+#         # else:
+#         #     result_code = '"' + result_code + '"'
+#         result_code=str(result_code)
+#
+#
+#         if complete_params is None or len(complete_params)==0:
+#             complete_params='NULL'
+#         else:
+#             complete_params = '"' + complete_params + '"'
+#         if real_complete_params is None or len(real_complete_params)==0:
+#             real_complete_params='NULL'
+#         else:
+#             real_complete_params = '"' + real_complete_params + '"'
+#
+#         #result_complete_params 传入的是bool，不要用处理
+#         # if result_complete_params is None or len(result_complete_params)==0:
+#         #     result_complete_params='NULL'
+#         # else:
+#         #     result_complete_params = '"' + result_complete_params + '"'
+#         result_complete_params=str(result_complete_params)
+#
+#         sql = "INSERT INTO interface_result (id_test,username,name_interface,exe_mode,url,header,cookie,params,result,expect_params,expect_params_value,real_expect_params,result_code,complete_params,real_complete_params,result_complete_params)" \
+#               " VALUES (" +id_test+","+ username + "," + interface_name + "," + exe_mode + "," + url + "," + header + "," + cookie + "," + params + ","+result+"," + expect_params + "," + expect_params_value + "," +real_expect_params+","+result_code+","+ complete_params+"," +real_complete_params+","+result_complete_params+ ")"
+#
+#         print("结果写入的sql:  ", sql)
+#
+#         try:
+#             cursor=self.conn.cursor()
+#             cursor.execute(sql)
+#         except:
+#             self.conn.ping()
+#             cursor = self.conn.cursor()
+#             cursor.execute(sql)
 
 
         # cursor = self.conn.cursor()
