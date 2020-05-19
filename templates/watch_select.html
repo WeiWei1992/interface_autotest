@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> --查看用例-- </h2>
+
+<form method="POST">
+    <label for="username">输入用户名，查看该用户的用例</label><br>
+    <input type="text" name="username"><br>
+    <!--<label for="password">Password</label><br>-->
+    <!--<input type="password" name="password" placeholder="19001130"><br>-->
+    <!--<input id="remember" name="remember" type="checkbox" checked>-->
+    <!--<label for="remember"><small>Remember me</small></label><br>-->
+
+    <!--<label for="interface_name">interface_name</label><br>-->
+    <!--<input type="text" name="interface_name" placeholder="Héctor Rivera"><br>-->
+
+    <!--<label for="interface_url">interface_url</label><br>-->
+    <!--<input type="text" name="interface_url" placeholder="Héctor Rivera"><br>-->
+
+
+    <input type="submit" name="submit" value="点击查看">
+</form>
+{% endblock %}

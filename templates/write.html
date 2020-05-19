@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{{ url_for('index_my') }}">&larr; 首页</a>
+<h2> --添加数据-- </h2>
+
+<form method="post">
+    <label for="username">Username</label><br>
+    <input type="text" name="username"><br><br>
+    <!--<label for="password">Password</label><br>-->
+    <!--<input type="password" name="password" placeholder="19001130"><br>-->
+    <!--<input id="remember" name="remember" type="checkbox" checked>-->
+    <!--<label for="remember"><small>Remember me</small></label><br>-->
+
+    <label for="interface_name">interface_name</label><br>
+    <input type="text" name="interface_name"><br><br>
+
+    <label for="exe_mode">exe_mode(请求类型)</label><br>
+    <input type="text" name="exe_mode" ><br><br>
+
+    <label for="interface_url">interface_url</label><br>
+    <input type="text" name="interface_url"><br><br>
+
+    <label for="header">header</label><br>
+    <input type="text" name="header"><br><br>
+
+    <label for="cookie">cookie</label><br>
+    <input type="text" name="cookie"><br><br>
+
+    <label for="params">params(请求参数)</label><br>
+    <input type="text" name="params"><br><br>
+
+    <label for="expect_params">expect_params(预期参数)</label><br>
+    <input type="text" name="expect_params"><br><br>
+
+    <label for="expect_params_value">expect_params_value(预期参数值)</label><br>
+    <input type="text" name="expect_params_value"><br><br>
+
+    <label for="complete_params">complete_params(要校验的参数)</label><br>
+    <input type="text" name="complete_params" ><br><br>
+
+
+
+    <input type="submit" name="submit" value="Log in">
+</form>
+{% endblock %}
