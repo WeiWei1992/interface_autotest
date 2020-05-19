@@ -33,6 +33,8 @@ class RunForm(FlaskForm):
     number=StringField('number', validators=[DataRequired()])
     submit = SubmitField('Log in')
 
+
+
 class WatchForm(FlaskForm):
     username=StringField('Username', validators=[DataRequired()])
     submit = SubmitField('Log in')
